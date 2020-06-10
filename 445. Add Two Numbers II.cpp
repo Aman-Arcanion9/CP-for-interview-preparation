@@ -26,7 +26,7 @@ public:
         
         int carr=0;
         ListNode *prev = NULL;
-        
+                                  //  carry condition is important as result may overflow the size of lonest L.L.
         while(s1.size() || s2.size() || carr){
             
             int sum = carr;
