@@ -1,3 +1,5 @@
+//Iterative aaproach
+
 class Solution {
 public:
     int numDecodings(string s) {
@@ -26,3 +28,31 @@ public:
         return dp[n];
     }
 };
+
+// Recursive Approach
+class Solution {
+public:
+    int solve(int i,int n,string s,int* dp){
+        if(i==n)
+            return dp[i] = 1;
+        if(dp[i]!=-1)
+            return dp[i];
+        int ans = 0;
+        if(s[i]!='0')
+            ans = solve(i+1,n,s,dp);
+        if(i+2<=n and s[i]!='0'){
+            int temp = (s[i]-'0')*10 + (s[i+1]-'0');
+            if(temp<=26)
+                ans += solve(i+2,n,s,dp);
+        }
+        return dp[i] = ans;
+    }
+    
+    int numDecodings(string s) {
+        int n = s.size();
+        int dp[n+1];
+        memset(dp,-1,sizeof dp);
+        return solve(0,n,s,dp);
+    }
+};
+
