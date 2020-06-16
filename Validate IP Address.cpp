@@ -42,8 +42,7 @@ public:
         if(!(dots==3 || colons==7)) return s1;
               
         if(flag1){
-            if(pack.size()!=4)
-                return s1;
+            if(pack.size()!=4) return s1;
             
             for(auto it:pack)
                 if(!IPv4_check(it)) return s1;
@@ -52,8 +51,7 @@ public:
         }
         
         if(flag2){
-            if(pack.size()!=8)
-                return s1;
+            if(pack.size()!=8) return s1;
             
             for(auto it:pack)
                 if(!IPv6_check(it)) return s1;
