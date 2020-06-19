@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
         
-        int ans = 0;
+        int del = 0;
         
         // Holds the Allocated seats
         unordered_map<int, vector<int> > alloc;
@@ -29,9 +29,9 @@ public:
             }
             
             // No. of seats in rows where people can't sit
-            ans+=(2-seats);
+            del+=(2-seats);
         }
         //Total groups of 4 present - ans                             
-        return 2*n-ans;
+        return 2*n-del;
     }
 };
